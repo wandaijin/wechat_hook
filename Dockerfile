@@ -45,7 +45,11 @@ USER app
 WORKDIR /home/app
 EXPOSE 8080
 
+COPY / /data
+
 COPY supervisord.d/ /etc/supervisor/conf.d/
 
 COPY entrypoint.sh /
+
+
 ENTRYPOINT ["/entrypoint.sh"]
