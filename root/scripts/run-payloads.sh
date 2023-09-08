@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -ex
-for i in `ls /payloads/*|sort`
+for i in `ls /scripts/payloads/*|sort`
 do
 [ -x "$i" ] && {
     "$i"

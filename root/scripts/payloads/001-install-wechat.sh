@@ -40,7 +40,7 @@ function install() {
     done
 }
 
-wine "C:\WeChatSetup-3.9.2.23.exe"  /NCRC &
+wine 'C:\install\WeChatSetup-3.9.2.23.exe' &
 install
 
 wait

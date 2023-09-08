@@ -6,7 +6,7 @@ RUN apt-get update && \
     pip install apt-mirror-updater
 
 # select a mirror
-# RUN apt-mirror-updater -c "https://mirrors.ustc.edu.cn/debian/"
+RUN apt-mirror-updater -c "https://mirrors.ustc.edu.cn/debian/"
 
 # install x11 related tool
 RUN apt-get update && \
@@ -43,13 +43,21 @@ ENV WINEPREFIX=/home/app/.wine
 
 USER app
 WORKDIR /home/app
-EXPOSE 8080
+#web vnc port
+EXPOSE 5900
+#http and web socket
+EXPOSE 5555
 
-COPY / /data
 
-COPY supervisord.d/ /etc/supervisor/conf.d/
+# init dir
+RUN wineboot -u
+COPY /root/scripts/ /scripts/
+COPY /root/etc/supervisor/conf.d/ /etc/supervisor/conf.d/
+
+
+# install binary on GUI
+RUN bash -c 'nohup /scripts/run-gui.sh 2>&1 &' && sleep 5 && /scripts/run-payloads.sh
 
 COPY entrypoint.sh /
-
 
 ENTRYPOINT ["/entrypoint.sh"]
