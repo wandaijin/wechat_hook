@@ -4,7 +4,7 @@ set -ex
 /scripts/run-gui.sh &
 sleep 5
 wine 'C:\Program Files (x86)\Tencent\WeChat\WeChat.exe' &
-sleep 5
+xdotool search --sync --onlyvisible --class WeChat.exe
 /scripts/monitor/inject-monitor.sh &
 sleep 5
 /scripts/monitor/wechat-monitor.sh &

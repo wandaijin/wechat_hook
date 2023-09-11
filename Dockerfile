@@ -43,20 +43,22 @@ ENV WINEPREFIX=/home/app/.wine
 
 USER app
 WORKDIR /home/app
-#web vnc port
+
+#novnc port
+EXPOSE 8080
+#vnc port
 EXPOSE 5900
-#http and web socket
+#http and websocket
 EXPOSE 5555
 
-
-# init dir
-RUN wineboot -u
-COPY /root/scripts/ /scripts/
+COPY /root/drive_c/installer ${WINEPREFIX}/drive_c/installer
 COPY /root/etc/supervisor/conf.d/ /etc/supervisor/conf.d/
-
+RUN sudo chown app:app -R ${WINEPREFIX}
+COPY /root/scripts/ /scripts/
 
 # install binary on GUI
 RUN bash -c 'nohup /scripts/run-gui.sh 2>&1 &' && sleep 5 && /scripts/run-payloads.sh
+
 
 COPY entrypoint.sh /
 

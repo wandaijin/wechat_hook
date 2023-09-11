@@ -1,47 +1,64 @@
 #!/usr/bin/env bash
 ## https://gitlab.com/cunidev/gestures/-/wikis/xdotool-list-of-key-codes
-function install() {
-    while :
+
+wine 'C:\installer\WeChatSetup-3.9.2.23.exe' &
+
+echo "wait WeChatSetup launch"
+
+## unpacking
+echo "WeChatSetup unpacking data"
+xdotool search --sync --name 'unpacking.*' getwindowpid
+while :
     do
-        xdotool search '微信安装向导'
-        NOTFOUND=$?
-        if [ "$NOTFOUND" == "0" ]; then
-            sleep 60
-            xdotool key Tab
-            sleep 0.5
-            xdotool key Tab
-            sleep 0.5
-            xdotool key Tab
-            sleep 0.5
-            xdotool key space
-            sleep 0.5
-            xdotool key Tab
-            sleep 0.5
-            xdotool key Tab
-            sleep 0.5
-            xdotool key Tab
-            sleep 0.5
-            xdotool key Tab
-            sleep 0.5
-            xdotool key Tab
-            sleep 0.5
-            xdotool key Tab
-            sleep 0.5
-            xdotool key Return
-            sleep 30
-            xdotool key Tab
-            sleep 0.5
-            xdotool key Tab
-            sleep 0.5
-            xdotool key Return
-            break
+        UNPACK_PID=$(xdotool search --name 'unpacking.*' getwindowpid)
+
+        if [ -z ${UNPACK_PID} ]; then
+               break
         fi
-        sleep 3
+        
+        if [ ${UNPACK_PID} -ge 0 ]; then
+                echo "unpacking"
+                sleep 1
+                continue
+        fi
+
+        break
     done
-}
+echo "WeChatSetup unpacking data finish"
 
-wine 'C:\install\WeChatSetup-3.9.2.23.exe' &
-install
 
-wait
-sleep 15
+xdotool search --sync --name '微信安装向导' windowactivate
+
+## click to install
+xdotool key Tab
+sleep 0.5
+xdotool key Tab
+sleep 0.5
+xdotool key Tab
+sleep 0.5
+xdotool key Tab
+sleep 0.5
+xdotool key space
+sleep 0.5
+xdotool key Tab
+sleep 0.5
+xdotool key Tab
+sleep 0.5
+xdotool key Tab
+sleep 0.5
+xdotool key Tab
+sleep 0.5
+xdotool key Tab
+sleep 0.5
+xdotool key Return
+
+##finsh install
+xdotool search --sync --name '微信 安装' 
+sleep 60
+
+##close install window
+xdotool key Tab
+sleep 0.5
+xdotool key Tab
+sleep 0.5
+xdotool key Return
