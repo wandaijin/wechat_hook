@@ -23,7 +23,7 @@ run docker with `--add-host=dldir1.qq.com:127.0.0.1`
 current version is 3.9.2.23
 
 ```bash
-$ docker pull wandaijin/wechat-hook:3.9.2.23`
+$ docker pull wandaijin/wechat-hook:3.9.2.23
 $ docker run --rm --add-host=dldir1.qq.com:127.0.0.1 -p 8080:8080 -p 5555:5555 -p 5900:5900 wandaijin/wechat-hook:3.9.2.23
 ```
 
