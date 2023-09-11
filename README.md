@@ -1,6 +1,6 @@
 ## Warning
 
-It Works On Intel CPU, M1 chip not work, other cup not tested.
+It Works On Intel CPU, M1 chip not work, other cpu not tested.
 
 ## open port
 
