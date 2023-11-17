@@ -35,6 +35,10 @@ connect `ws://127.0.0.1:5555/` websocket to listen message
 
 post `http://127.0.0.1:5555/` to send message
 
+### [api document](./doc/api.md)
+
+
+
 ### Credit
 
 - https://github.com/cixingguangming55555/wechat-bot
