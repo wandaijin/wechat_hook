@@ -29,25 +29,27 @@ $ docker run --rm --add-host=dldir1.qq.com:127.0.0.1 -p 8080:8080 -p 5555:5555 -
 
 open `http://127.0.0.1:8080/vnc.html` to login
 
-### note
+## note
 
 connect `ws://127.0.0.1:5555/` websocket to listen message
 
 post `http://127.0.0.1:5555/` to send message
 
-### [api document](./doc/api.md)
 
 
-### wechat binary download page
+## [api document](./doc/api.md)
+
+
+## wechat binary download page
 
 https://github.com/tom-snow/wechat-windows-versions/releases
 
-### funtool download page
+## funtool download page
 
 https://github.com/cixingguangming55555/wechat-bot
 
 
-### Credit
+## Credit
 
 - https://github.com/cixingguangming55555/wechat-bot
 - https://github.com/ChisBread/injector-box
