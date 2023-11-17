@@ -1,0 +1,1 @@
+If you run as `docker run --rm --add-host=dldir1.qq.com:127.0.0.1 -p 8080:8080 -p 5555:5555 wandaijin/wechat-hook:{version}`, then 127.0.0.1:5555 is your websocket server endpoint.
