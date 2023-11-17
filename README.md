@@ -37,7 +37,7 @@ post `http://127.0.0.1:5555/` to send message
 
 
 
-## [api document](./doc/api.md)
+## api document [link](./doc/api.md)
 
 
 ## wechat binary download page
