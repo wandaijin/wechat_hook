@@ -250,7 +250,7 @@ Message is a json object that has 7 keys. 7 keys must be presented, even they ar
 
 **例如**
 
-需要使用`para`作为键名。`roomid`参数无效，不能通过`roomid`参数进行筛选
+需要使用`para`作为键名。
 
 ```json
 {
